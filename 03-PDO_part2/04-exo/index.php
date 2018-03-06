@@ -21,7 +21,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=colyseum', 'root', 'toor', array(PDO
       <?php
         $sqlselect = "SELECT * FROM clients WHERE lastName = 'Perry'";
         $requestselect = $bdd->query($sqlselect);
-        $row = $requestselect->fetch(PDO::FETCH_ASSOC)
+        $row = $requestselect->fetch(PDO::FETCH_ASSOC);
        ?>
       <input type="text" name="lastname" value="<?php echo $row['lastName'] ?>">
     <br>
