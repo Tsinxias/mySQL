@@ -1,6 +1,5 @@
 <?php
 $bdd = new PDO('mysql:host=localhost;dbname=colyseum', 'root', 'toor', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-
  ?>
 <!DOCTYPE html>
 <html lang="en">
