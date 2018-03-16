@@ -1,3 +1,22 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+try {
+	require 'connect.php';
+
+//----------user rights----------//
+	session_start();
+	if (!isset($_SESSION['username'])) {
+		echo 'Pas d\'accès, veuillez vous connectez en tant qu\'administrateur !';
+		die();
+	}
+
+} catch (PDOException $e) {
+	print "Error !: " . $e->getMessage() . "<br/>";
+	die();
+}
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>

@@ -4,6 +4,13 @@ ini_set('display_errors', 1);
 try {
 	require 'connect.php';
 
+//----------user rights----------//
+	session_start();
+	if (!isset($_SESSION['username'])) {
+		echo 'Pas d\'accès, veuillez vous connectez en tant qu\'administrateur !';
+		die();
+	}
+
 	$hike = $_GET['hike'];
 	$select = "SELECT * FROM hiking WHERE id = '$hike'";
 	$prepare = $bdd->query($select);

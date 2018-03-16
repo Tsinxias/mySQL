@@ -18,3 +18,9 @@ a {
   font-size: 1em;
   padding: 5px 10px 5px 10px;
 }
+
+.logoutBtn {
+  float: right;
+  background-color: white;
+  padding: 5px 10px 5px 10px;
+}

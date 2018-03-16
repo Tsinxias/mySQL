@@ -3,6 +3,17 @@
   ini_set('display_errors', 1);
   try {
     require 'connect.php';
+    session_start();
+//----------user rights----------//
+    if (!isset($_SESSION['username'])) {
+  		echo 'Pas d\'accès, veuillez vous connectez en tant qu\'administrateur !';
+  		die();
+  	}
+
+//----------WELCOME MESSAGE---------//
+    if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
+      echo '<h3>Bienvenu ' . $_SESSION['username'] . ' !</h3>';
+    }
 
   } catch (PDOException $e) {
     print "Error !: " . $e->getMessage() . "<br/>";
@@ -18,6 +29,8 @@
     <link rel="stylesheet" href="basics.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
+    <a href="logout.php"><button class="logoutBtn" type="button" name="button">Log Out</button></a>
+
     <h1>Liste des randonnées</h1>
     <a href="create.php"><button class="createBtn" type="button" name="button">Créer un nouveau parcours</button></a>
 
