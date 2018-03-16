@@ -4,8 +4,8 @@
   try {
     require 'connect.php';
 
-    $sql = "INSERT INTO hiking (name, difficulty, distance, duration, height_difference)
-            VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO hiking (name, difficulty, distance, duration, height_difference, available)
+            VALUES (?, ?, ?, ?, ?, ?)";
     $request = $bdd->prepare($sql);
 
     $name = $_POST['name'];
@@ -13,8 +13,9 @@
     $distance = $_POST['distance'];
     $duration = $_POST['duration'];
     $height_difference = $_POST['height_difference'];
+    $available = $_POST['available'];
 
-    $request->execute(array($name, $difficulty, $distance, $duration, $height_difference));
+    $request->execute(array($name, $difficulty, $distance, $duration, $height_difference, $available));
 
     header('Location: create.php?request=success');
   } catch (PDOException $e) {

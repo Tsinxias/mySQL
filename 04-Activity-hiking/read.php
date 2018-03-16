@@ -1,6 +1,14 @@
 <?php
-$bdd = new PDO('mysql:host=localhost;dbname=reunion_island', 'root', 'toor', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
- ?>
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+  try {
+    require 'connect.php';
+
+  } catch (PDOException $e) {
+    print "Error !: " . $e->getMessage() . "<br/>";
+    die();
+  }
+?>
 
 <!DOCTYPE html>
 <html>
@@ -11,6 +19,8 @@ $bdd = new PDO('mysql:host=localhost;dbname=reunion_island', 'root', 'toor', arr
   </head>
   <body>
     <h1>Liste des randonnées</h1>
+    <a href="create.php"><button class="createBtn" type="button" name="button">Créer un nouveau parcours</button></a>
+
     <table>
       <tr>
         <th>Nom</th>
@@ -18,6 +28,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=reunion_island', 'root', 'toor', arr
         <th>Distance en KM</th>
         <th>Durée</th>
         <th>Hauteur en m</th>
+        <th>Praticable</th>
       </tr>
       <!-- Afficher la liste des randonnées -->
       <?php
@@ -30,9 +41,19 @@ $bdd = new PDO('mysql:host=localhost;dbname=reunion_island', 'root', 'toor', arr
               <td>'.$show["distance"].'</td>
               <td>'.$show["duration"].'</td>
               <td>'.$show["height_difference"].'</td>
+              <td>'.$show["available"].'</td>
+              <td>
+                <a href="delete.php?hike='.$show["id"].'"><button type="submit" name="button">Supprimer</button></a></td>
               </tr>';
       }
        ?>
     </table>
+
+    <?php
+      if (isset($_GET['request'])) {
+        echo "La randonnée a bien été supprimée.";
+      }
+     ?>
+
   </body>
 </html>

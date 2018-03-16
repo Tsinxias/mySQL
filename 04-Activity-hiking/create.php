@@ -27,7 +27,7 @@
 
 		<div>
 			<label for="distance">Distance</label>
-			<input type="text" name="distance" value="">
+			<input type="number" name="distance" value="">
 		</div>
 		<div>
 			<label for="duration">Durée</label>
@@ -35,7 +35,11 @@
 		</div>
 		<div>
 			<label for="height_difference">Dénivelé</label>
-			<input type="text" name="height_difference" value="">
+			<input type="number" name="height_difference" value="">
+		</div>
+		<div>
+			<label for="available">Praticable</label>
+			<input type="text" name="available" value="">
 		</div>
 		<button type="submit" name="button">Envoyer</button>
 	</form>
