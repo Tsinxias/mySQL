@@ -20,7 +20,7 @@
         <button type="submit" name="button">Se connecter</button>
       </div>
     </form>
-
+    
     <?php
       if (isset($_GET['fillIn'])) {
         echo 'Le formulaire n\'a pas été bien rempli';
